@@ -1,6 +1,9 @@
-package exercise1;
+package diffpackageexercise1;
 
-public class AccountManager {
+import exercise1.Account;
+import exercise1.AccountManager;
+
+public class ExternalAudit {
 	Account managerAccount = new Account("Charle", 2000.0, 1122, "Manager view");
 
 	public void testAccess() {
@@ -13,5 +16,4 @@ public class AccountManager {
 		manager.testAccess();
 
 	}
-
 }
