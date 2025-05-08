@@ -1,0 +1,9 @@
+b) What do you think is the variant that makes more sense in this case? Pick one and justify your answer.
+Answer:
+In this case, Variant 2 (delegating exception handling to the caller) makes more sense.
+c)
+Variant 1 (handling the exception within the method Calculator::divide itself) would make more sense in a situation where the method can meaningfully recover from the error or provide a sensible default behavior without needing the caller's intervention, and the caller doesn't necessarily need to know that a minor issue occurred.
+
+
+While Variant 1 can inform the user, it makes a fixed decision on how to handle the error: it prints to System.err and returns NaN.
+so variant 1 makes something out of the error and the delegating one tells the user and "gives the ability to the user to react to it before the main method ends"?

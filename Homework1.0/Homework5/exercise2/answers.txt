@@ -1,0 +1,6 @@
+1. What happens if an exception is thrown but not caught?
+The program (or current thread) terminates abruptly, and Java prints a stack trace to the error output, showing the error and where it happened. For "checked exceptions," the code won't even compile if they aren't handled or declared.
+2. Advantage of catching specific exceptions vs. a general Exception?
+Catching specific exceptions allows for targeted error handling (different actions for different errors), makes code clearer, and prevents masking bugs by accidentally catching unexpected errors.
+3. When to use try-with-resources and its advantages?
+Use it for resources that need explicit closing (like files, database connections – anything AutoCloseable). Its main advantages are automatic resource closing (preventing leaks), cleaner code (less boilerplate than finally blocks), and better handling of "suppressed exceptions" during closing.
