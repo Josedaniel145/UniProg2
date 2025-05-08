@@ -1,0 +1,14 @@
+1) Is your code an example of dependency injection? Explain why or why not?
+Anstatt dass die Customer-Klasse ihre eigene Profile-Instanz intern erstellt  wird das Profile-Objekt (profile) extern (in der main-Methode) erstellt und dem Konstruktor des Customer-Objekts übergeben:
+
+in diesem Fall von der main-Methode im EComController, die als "Injector" oder "Assembler" fungiert).
+
+3) You realize that your code breaks the law of Demeter, explain why and what a possible fix
+looks like.
+
+Laut die Gesetz ein Objekt nur mit seinen "unmittelbaren Freunden" und nicht mit "Fremden" (Objekten, die es von seinen Freunden erhält) kommunizieren sollte
+Die Zeile customer.getProfile().getShippingInfo().getCity() im EComController verletzt dieses Gesetz.
+
+3.2) 
+
+so the profile has getter method that calls for the city then the customer has a getter method that calls for the city and in the main method you just type customer.getCustomerShippingCity()?
