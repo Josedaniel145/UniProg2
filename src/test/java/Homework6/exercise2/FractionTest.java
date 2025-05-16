@@ -33,6 +33,16 @@ public class FractionTest {
 	}
 	
 	@Test
+	void testAddition() {
+		Fraction f1 = new Fraction (1,2);
+		Fraction f2 = new Fraction (2,3);
+		 f1.addition(f2);
+		 assertEquals(7, f1.getZaehler(), "Addition: Numerator should be 4+6= 10");
+		 assertEquals(6, f1.getNenner(), "Addition: Denominator should be 3*2= 6");
+
+	}
+	
+	@Test
 	void testKuerzen() {
 		Fraction f = new Fraction(6,9);
 		f.kuerzen();

@@ -51,6 +51,12 @@ public class Fraction {
 			this.setZaehler(this.getZaehler() * a.getNenner());
 			neuerZaehler = a.getZaehler() * this.getNenner();
 			this.setZaehler(this.getZaehler() + neuerZaehler);
+			/*
+			 * 
+			 * this.nenner = this.nenner * a.getNenner();
+			 * 
+			 *  
+			 *  */
 		} else {
 			this.setZaehler(this.getZaehler() + a.getZaehler());
 		}
