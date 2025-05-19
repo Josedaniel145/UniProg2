@@ -51,7 +51,7 @@ public class MatrixMultMain {
 						throw new RuntimeException("Matrix multiplication interrupted", e);
 					}
 				}
-				resultMatrix[i][j] = sumForElement;
+				resultMatrix[i][j] = sumForElement; // needs a .join() in order that the multiThreading works in order first the sumForElement then it gets into the resultMatrix. 
 
 			}
 
