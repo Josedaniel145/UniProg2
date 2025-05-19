@@ -70,9 +70,9 @@ public class MatrixMultMain {
 			for(int val : row) {
 				System.out.print(val + "\t");
 			}
-			System.out.println();
+			System.out.println(); // values would be printed below 
 		}
-		System.out.println();
+		System.out.println(); // extra space after the matrix has been printed 
 	}
 
 	public static void main(String[] args) {
