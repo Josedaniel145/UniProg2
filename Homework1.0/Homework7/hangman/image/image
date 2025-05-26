@@ -1,0 +1,28 @@
+Which SOLID principles do you recognize in your solution?
+S - Single Responsibility Principle:
+GameLogic interface defines the responsibility of handling game progression.
+TimerLogic interface defines the responsibility of managing a timer.
+GameGUI is primarily responsible for the GUI presentation and basic setup.
+HangmanGame orchestrates these by implementing the logic and timer, and extending the GUI. While HangmanGame does a lot, the definitions of responsibilities are separated by interfaces.
+O - Open/Closed Principle:
+The system is open for extension (e.g., you could create a different type of GameLogic or TimerLogic implementation) but closed for modification (the interfaces themselves, once defined and used, shouldn't need to change to add new types of games/timers).
+L - Liskov Substitution Principle:
+Anywhere you expect a GameLogic, you should be able to substitute a HangmanGame instance. The same applies to TimerLogic. Code written against the interfaces will work with any valid implementation.
+I - Interface Segregation Principle:
+We've created two distinct, client-specific interfaces (GameLogic, TimerLogic) rather than one large, general-purpose "Game" interface. Clients (like a part of the system only interested in timing) don't need to depend on methods they don't use.
+D - Dependency Inversion Principle:
+High-level modules (e.g., a game orchestrator if we had one) could depend on abstractions (the interfaces GameLogic, TimerLogic) rather than concrete low-level implementations (HangmanGame). HangmanGame itself depends on the GameGUI abstraction for its UI.
+
+
+How does using interfaces improve the flexibility of your design?
+Pluggability: You can easily swap out implementations. For example, you could create a HangmanGameAdvancedLogic that implements GameLogic with different rules, or a NoTimerLogic that implements TimerLogic with an empty startTimer() method, without changing the code that uses these interfaces (if it's programmed to the interface).
+Decoupling: Components become less dependent on each other's concrete classes. HangmanGame implements GameLogic, but other parts of a larger system wouldn't need to know it's specifically HangmanGame if they only need the GameLogic contract.
+Testability: It's easier to create mock objects or test doubles that implement these interfaces for unit testing, isolating components.
+
+
+What benefits does this modular design using interfaces offer in larger, more complex projects?
+Improved Maintainability: Changes to one implementation (e.g., how the timer works) are less likely to break other parts of the system, as long as the interface contract is maintained.
+Enhanced Reusability: Well-defined interfaces and their implementing components can potentially be reused in other projects or different parts of the same project.
+Parallel Development: Different teams can work on different implementations of interfaces simultaneously, as long as the interface contract is agreed upon.
+Clearer Architecture: Interfaces help define clear boundaries and contracts between different modules or layers of an application, making the overall system easier to understand and reason about.
+Scalability: As the project grows, it's easier to add new features or modify existing ones by introducing new interface implementations or extending existing ones without massive rewrites.
