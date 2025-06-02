@@ -43,7 +43,7 @@ public class ShapeAnalyzer {
 		for(T shape : shapes) {
 			if(shape != null) {
 				String typeName = shape.getClass().getSimpleName();
-				groupedShapes.computeIfAbsent(typeName, k -> new ArrayList<>()).add(shape);
+				groupedShapes.computeIfAbsent(typeName, k -> new ArrayList<>()).add(shape); // .computeIfAbsent only computes the thing if it is absent in the if loop. 
 			}
 		}
 		return groupedShapes;
