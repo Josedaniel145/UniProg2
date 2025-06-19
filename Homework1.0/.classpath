@@ -13,5 +13,6 @@
 	<classpathentry excluding="Homework6/exercise1/" kind="src" path="Homework6"/>
 	<classpathentry kind="src" path="Homework7"/>
 	<classpathentry kind="src" path="Homework8"/>
+	<classpathentry kind="src" path="Homework9"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
