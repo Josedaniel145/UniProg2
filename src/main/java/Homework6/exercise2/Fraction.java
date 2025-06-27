@@ -15,19 +15,17 @@ public class Fraction {
 		this.setNenner(this.zaehler);
 		this.setZaehler(this.nenner);
 	}
-	/* 
-	 * public void Kehrwert(){
-	 *  	if(this.zaehler==0){
-	 *  throw new ArithmeticException("Cannot take reciprocal of a fraction with zero numerator (results in zero denominator).");}
-	 *  int tempZahealer = this.zaehler;
-	 *  this.zaehler = this.nenner;
-	 *  this.nenner = tempZaehler; 
-	 *  }
-	 * 
-	 * 
-	 * 
-	 * 
-	 * */
+	 
+	 public void Kehrwert(){
+	  if(this.zaehler==0){
+	 throw new ArithmeticException("Cannot take reciprocal of a fraction with zero numerator (results in zero denominator).");}
+	  int tempZahealer = this.zaehler;
+	  this.zaehler = this.nenner;
+	  this.nenner = tempZaehler; 
+	 }
+	
+	 
+	
 
 	// wrong
 	public void multiplikation(Fraction a) {
@@ -51,16 +49,45 @@ public class Fraction {
 			this.setZaehler(this.getZaehler() * a.getNenner());
 			neuerZaehler = a.getZaehler() * this.getNenner();
 			this.setZaehler(this.getZaehler() + neuerZaehler);
-			/*
-			 * 
-			 * this.nenner = this.nenner * a.getNenner();
-			 * 
-			 *  
-			 *  */
 		} else {
 			this.setZaehler(this.getZaehler() + a.getZaehler());
 		}
 	}
+	 public void addition(Fraction a) {
+    // Always check for null input first
+    if (a == null) {
+        throw new IllegalArgumentException("Cannot add a null fraction.");
+    }
+
+    // Get the original values of *this* fraction and the *other* fraction (a)
+    int thisZaehler = this.getZaehler(); // Numerator of current fraction
+    int thisNenner = this.getNenner();   // Denominator of current fraction
+    int otherZaehler = a.getZaehler();   // Numerator of the fraction 'a'
+    int otherNenner = a.getNenner();     // Denominator of the fraction 'a'
+
+    // Calculate the new numerator and denominator using the formula: (a/b) + (c/d) = (ad + bc) / bd)
+    // (this.zaehler * a.nenner) + (a.zaehler * this.nenner) for the numerator
+    int resultZaehler = (thisZaehler * otherNenner) + (otherZaehler * thisNenner);
+
+    // (this.nenner * a.nenner) for the denominator
+    int resultNenner = thisNenner * otherNenner;
+
+    // Update the current fraction object with the calculated results
+    this.setZaehler(resultZaehler);
+    this.setNenner(resultNenner); // <-- This is the crucial part that was wrong/missing
+
+    // Check if the resulting denominator is zero (important edge case)
+     if (this.getNenner() == 0) {
+         throw new ArithmeticException("Addition resulted in a zero denominator.");
+     }
+
+    // IMPORTANT: After addition, the fraction should ideally be reduced
+    // to its simplest form (e.g., 4/8 becomes 1/2).
+    // If your set methods don't handle this, you'll need a separate call:
+    // this.reduce(); // Uncomment if you have a reduce method
+}
+ 
+	
 
 	// wrong
 	public void kuerzen() {
@@ -69,7 +96,7 @@ public class Fraction {
 		this.nenner *= ggt;
 	}
 	
-	/* 
+	 
 	 * public void kuerzen(){
 	 * if(this.nenner == 0){
 	 * throw new ArithmeticException("Cannot simplify a fraction with zero denominator.");}
@@ -91,7 +118,8 @@ public class Fraction {
 	 * 
 	 * 
 	 * }
-	 */
+	 
+	// it divides it by the ggt 
 
 	// helper method Euklidian algorithm ,
 	// here are no mistakes

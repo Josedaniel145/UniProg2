@@ -15,7 +15,7 @@ public class FractionTest {
 	@Test 
 	
 	void testKehrwert() {
-		Fraction f = new Fraction(2,3);
+		Fraction f = new Fraction(2,3); 
 		f.Kehrwert();
 		assertEquals(3, f.getZaehler(), "Kehrwert: Numerator should be 3 for original 2/3");
 		assertEquals(2, f.getNenner(),"Kehrwert: Denominator should be 2 for original 2/3" );
@@ -37,7 +37,7 @@ public class FractionTest {
 		Fraction f1 = new Fraction (1,2);
 		Fraction f2 = new Fraction (2,3);
 		 f1.addition(f2);
-		 assertEquals(7, f1.getZaehler(), "Addition: Numerator should be 4+6= 10");
+		 assertEquals(10, f1.getZaehler(), "Addition: Numerator should be 4+6= 10");
 		 assertEquals(6, f1.getNenner(), "Addition: Denominator should be 3*2= 6");
 
 	}
